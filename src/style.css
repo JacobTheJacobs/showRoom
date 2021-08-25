@@ -1,0 +1,219 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    overflow: hidden;
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+.loading-bar
+{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 10px;
+    background: black;
+    transform: scaleX(0.3);
+    transform-origin: top left;
+    transition: transform 0.5s;
+    border-radius: 10%;
+}
+
+.loading-bar.ended
+{
+    transform: scaleX(0);
+    transform-origin: 100% 0;
+    transition: transform 1.5s ease-in-out;
+}
+
+
+
+  .tray {
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    overflow-x: hidden;
+    bottom: 0;
+  }
+
+  .tray__slide {
+    position: relative;
+    display: flex;
+    left: 0;
+    bottom: 0;
+    
+  /*   transform: translateX(-50%);
+    animation: wheelin 1s 2s ease-in-out forwards; */
+  }
+
+
+  .tray__swatch {
+    transition: 0.1s ease-in;
+    height: 50px;
+    min-width: 50px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin:2px;
+    -webkit-transform-style: preserve-3d;
+  background-size: auto 500%;
+  -webkit-animation: move-map 30s infinite linear;
+  -moz-animation: move-map 30s infinite linear;
+  -o-animation: move-map 30s infinite linear;
+  -ms-animation: move-map 30s infinite linear;
+  animation: move-map 30s infinite linear;
+  z-index: 999;
+  }
+  .tray__swatch:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-filter: blur(0);
+    opacity: 0.3;
+    background: radial-gradient(
+      circle at 50% 80%,
+      transparent,
+      transparent 10%,
+      black 66%,
+      black 100%
+    );
+    z-index: 999;
+  }
+  .tray__swatch:nth-child(5n+5) {
+  
+  }
+
+  @-moz-keyframes move-map {
+    0% {
+      background-position: -849px 0;
+    }
+  
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  @-webkit-keyframes move-map {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -849px 0;
+    }
+  }
+  
+  @-o-keyframes move-map {
+    0% {
+      background-position: -849px 0;
+    }
+  
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  @-ms-keyframes move-map {
+    0% {
+      background-position: -849px 0;
+    }
+  
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  @keyframes move-map {
+    0% {
+      background-position: -849px 0;
+    }
+  
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  .point {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* pointer-events: none; */
+  }
+  
+  .point .label {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #77777777;
+    border: 15px solid #ffffff77;
+    color: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 800;
+    font-size: 10px;
+    cursor: pointer;
+    transform: scale(0, 0);
+    transition: transform 0.3s;
+  }
+  
+  .point .text {
+    position: absolute;
+    top: 30px;
+    left: -120px;
+    width: 200px;
+    padding: 20px;
+    border-radius: 4px;
+    background: #00000077;
+    border: 1px solid #ffffff77;
+    color: #ffffff;
+    line-height: 1.3em;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  
+  .point:hover .text {
+    opacity: 1;
+  }
+  
+  .point.visible .label {
+    transform: scale(1, 1);
+  }
+  
+  h1 {
+    position: absolute;
+    top: 63px;
+    left: 0px;
+    padding: 0;
+    margin: 40px;
+    font-size: 5em;
+    font-weight: 600;
+    line-height: 0.9em;
+    letter-spacing: 2px;
+    color: white;
+    z-index: 10;
+  }
+  
+
