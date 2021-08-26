@@ -6,6 +6,9 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 import { gsap } from "gsap";
 
+if (process.env.NODE_ENV !== "production") {
+  console.log("Looks like we are in development mode!");
+}
 /**
  * Loaders
  */
