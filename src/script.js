@@ -273,7 +273,7 @@ gui.add(renderer, "toneMappingExposure").min(0).max(10).step(0.001);
  */
 
 const loadModel = () => {};
-gltfLoader.load("/models/SamsungRFG_Anim.glb", (gltf) => {
+gltfLoader.load("SamsungRFG_Anim.glb", (gltf) => {
   gltf.scene.scale.set(1, 1, 1);
   gltf.scene.position.set(0, 0, 0);
   gltf.scene.rotation.y = Math.PI * 0.5;
@@ -359,9 +359,10 @@ gltfLoader.load("/models/SamsungRFG_Anim.glb", (gltf) => {
 });
 gui
   .add(gltfLoader, "load", {
-    filePathModel1: "/models/SamsungRFG_Anim.glb",
-    filePathModel2: "/models/Ring-Smaple-jewelry.glb",
-    filePathModel3: "/models/dim-ragingBull-shoe.glb",
+    filePathModel1: "SamsungRFG_Anim.glb",
+    filePathModel2: "Ring-Smaple-jewelry.glb",
+    filePathModel3: "dim-ragingBull-shoe.glb",
+    filePathModel4: "hamburger.glb",
   })
   .onFinishChange((e) => {
     scene.remove(obj);
