@@ -3,7 +3,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "dat.gui";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-
 import { gsap } from "gsap";
 
 /**
@@ -11,7 +10,6 @@ import { gsap } from "gsap";
  */
 let sceneReady = false;
 const loadingBarElement = document.querySelector(".loading-bar");
-console.log(loadingBarElement);
 const loadingManager = new THREE.LoadingManager(
   // Loaded
   () => {
@@ -119,7 +117,6 @@ const updateAllMaterials = (e) => {
       child.material instanceof THREE.MeshStandardMaterial
     ) {
       child.material.color.set(e);
-      console.log(e);
     }
   });
 };
@@ -358,8 +355,6 @@ gltfLoader.load("/models/SamsungRFG_Anim.glb", (gltf) => {
       action.clampWhenFinished = true;
       action.play();
     });
-
-    console.log(points);
   }
 });
 gui
@@ -369,16 +364,12 @@ gui
     filePathModel3: "/models/dim-ragingBull-shoe.glb",
   })
   .onFinishChange((e) => {
-    console.log(obj.children);
-
     scene.remove(obj);
     obj.children.forEach((child) => {
-      console.log(
-        child.children.forEach((c) => {
-          c.geometry.dispose();
-          c.material.dispose();
-        })
-      );
+      child.children.forEach((c) => {
+        c.geometry.dispose();
+        c.material.dispose();
+      });
     });
 
     gltfLoader = new GLTFLoader();
@@ -480,8 +471,6 @@ const tick = () => {
   }
 
   if (sceneReady) {
-    // Go through each poi
-    console.log(sceneReady);
     for (const point of points) {
       // Get 2D screen position
       const screenPosition = point.position.clone();
@@ -553,10 +542,9 @@ const buildColors = (colors) => {
 };
 
 const selectSwatch = (e) => {
-  console.log(e.getAttribute("data-key"));
   let color = colors[parseInt(e.getAttribute("data-key"))];
   let new_mtl;
-  console.log(color);
+
   new_mtl = new THREE.Color("#" + color.color);
 
   updateAllMaterials(new_mtl);
@@ -595,7 +583,7 @@ const playClipReverseByIndex = (index) => {
   action.loop = THREE.LoopOnce;
   action.clampWhenFinished = true;
   action.play();
-  console.log(index, index);
+
   if (index === 0) {
     isBottomDoorOpened = true;
   }
@@ -608,7 +596,6 @@ const playClipReverseByIndex = (index) => {
 };
 
 const handleClick = (side) => {
-  console.log(side, side);
   let s = side;
   if (s === "right") {
     if (isRightDoorOpened) {
